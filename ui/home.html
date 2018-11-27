@@ -9,7 +9,23 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
   </head>
   <body>
-  
+    <div class="container">
+      <img src="img/logo.png" class="logo">
+      <div class="row">
+        <div class="eight columns main">
+          
+        </div>
+        <div class="four columns sidebar">
+          <label for="currency" class="inline">Currency:</label>
+          <input type="text" value="$" id="currency">
+          <button class="u-full-width button-primary" onclick="showThenHide('send', 'download')">Send Invoice</button>
+          <button class="button-primary u-full-width" onclick="showThenHide('download', 'send')">Download Invoice</button>
+          <hr />
+          <div id="download">Download Hidden Content</div>   
+          <div id="send">Send Email Hidden Content</div>       
+        </div>
+      </div>
+    </div>
   <script src="js/main.js" type="text/javascript"></script>
   </body>
 </html>
