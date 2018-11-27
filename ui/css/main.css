@@ -24,3 +24,6 @@ hr {
     display:none;
     font-family: 'Roboto', sans-serif;
 }
+textarea {
+    height:190px;
+}

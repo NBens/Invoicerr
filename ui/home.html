@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/skeleton.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="container">
@@ -21,8 +22,34 @@
           <button class="u-full-width button-primary" onclick="showThenHide('send', 'download')">Send Invoice</button>
           <button class="button-primary u-full-width" onclick="showThenHide('download', 'send')">Download Invoice</button>
           <hr />
-          <div id="download">Download Hidden Content</div>   
-          <div id="send">Send Email Hidden Content</div>       
+          <div id="download">
+              <label for="type" class="inline">File Type:</label>
+              <select id="type">
+                  <option>PDF</option>
+                  <option>PNG</option>
+                  <option>HTML</option>
+              </select>
+              <button class="u-full-width">Download</button>
+          </div>   
+          <div id="send">
+              <label for="email-receiver">To:</label>
+              <input type="email" placeholder = "example@example.com" id="email-receiver" class="u-full-width">      
+              <label for="email-sender">From:</label>
+              <input type="email" placeholder = "example@example.com" id="email-sender" class="u-full-width">
+              <label class="inline">Subject:</label> Invoice from SENDERHERE : NUMBERHERE
+              <label for="message">Message:</label>
+              <textarea class="u-full-width">Hi FOULANI,
+              
+A new invoice has been created on your account. You may find a PDF of your invoice attached.
+
+Thank you for your business!
+                  
+With Regards,
+- sljflk</textarea>
+              <small><i class="fa fa-paperclip"></i> Invoice Attached</small>
+              <p>(CAPTCHA HERE)</p>
+              <button class="u-full-width">Send!</button>
+          </div>       
         </div>
       </div>
     </div>
