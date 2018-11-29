@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,100');
 body {
     background-color: #ecf0f1;
 }
 .main {
     background-color: #FFF;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #95a5a6;
+    margin-bottom:5px;
+}
+.main h2 {
+    font-weight:100;
 }
 .sidebar {
     background-color: #FFF;
     padding:15px;
+    border: 1px solid #95a5a6;
 }
 .logo {
     width:80px;
@@ -26,4 +34,43 @@ hr {
 }
 textarea {
     height:190px;
+}
+.logo-part img {
+    max-height: 150px;
+    max-width: 200px;
+    border: 1px solid #ecf0f1;
+}
+.link {
+    text-decoration: none;
+}
+.delete {
+    color: #e74c3c;
+    cursor:pointer;
+}
+.delete:hover {
+    color: red;
+    
+}
+td {
+    padding:5px 5px;
+}
+td:last-child {
+    padding-bottom: 20px;
+}
+table {
+    margin-bottom:5px;
+}
+#balanceDue {
+    padding:5px;
+    background-color:#ecf0f1;
+    border:1px solid #bdc3c7;
+    border-radius:5px;
+    width:50%;
+}
+.subtotal {
+    padding:5px;
+    background-color:#ecf0f1;
+    border:1px solid #bdc3c7;
+    border-radius:5px;  
+    margin-bottom:10px;
 }

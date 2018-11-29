@@ -14,12 +14,72 @@
       <img src="img/logo.png" class="logo">
       <div class="row">
         <div class="eight columns main">
-          .
+            <div class="row">
+          <div class="u-pull-left">
+            <a href="#" class="link"><i class="fa fa-plus"></i> Add Logo</a>
+            <div class="logo-part"><img src="https://via.placeholder.com/200x150"></div>
+            <input type="text" placeholder="Bill From" id="sender">
+            <label>Bill to:</label>
+            <input type="text" placeholder="Bill To" id="receiver">
+          </div>
+          <div class="u-pull-right">
+            <h2>INVOICE</h2>
+            <input type="text" placeholder="#622" id="invoiceNumInput">
+            <label>Date: </label><input type="date">
+            <label>Payment Terms: </label><input type="text">
+            <label>Due Date: </label><input type="date"><br>
+            <div id = "balanceDue"><label>Balance Due: </label><span><b class="currency">$</b> 15.00</span></div>
+          </div>
+            </div>
+          <div class="row">
+          <hr />
+          <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tr>
+                <td><input class="u-full-width" type="text" placeholder="Item Name or Description"></td>
+                <td><input class="u-full-width" type="text" size=4></td>
+                <td><input class="u-full-width" type="text" size=4></td>
+                <td><span class="tableTotals">0</span> <span class="currency">$</span> <i class="fa fa-times delete u-pull-right" onclick="deleteItem(this);"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+          <button onclick="createItem();"><i class="fa fa-plus"></i> New Item</button>
+          <div class="row">
+            <div class="five columns offset-by-seven">
+              <div class="subtotal"><label class="inline">Subtotal: </label><span>50 <span class="currency">$</span></span><br /></div>
+              <label>Tax(<span class="currency">$</span>/%): </label><select><option class="currency">$</option><option>%</option></select><input type="text" size=5 value="0"><br />
+              <label>Discount(<span class="currency">$</span>/%): </label><select><option class="currency">$</option><option>%</option></select><input type="text" size=5 value="0"><br />
+              <label>Shipping(<span class="currency">$</span>): </label><input type="text" size=5 placeholder="5" value="0">
+            </div>
+          </div>
+          <div class="row">
+              <hr />
+              <div class="five columns offset-by-seven">
+                  <div class="subtotal"><label class="inline">Total: </label><span>50 <span class="currency">$</span></span><br /></div>
+                  <label class="inline">Amount Paid(<span class="currency">$</span>): </label><input type="text" size=10>
+          </div>
+          </div>
+          <div class="row">
+              <hr />
+              <label>Notes: </label>
+              <textarea class="u-full-width"></textarea>
+              <label>Terms: </label>
+              <textarea class="u-full-width"></textarea>
+          </div>
+        </div>
         </div>
         <div class="four columns sidebar">
           <label for="currency" class="inline">Currency:</label>
-          <input type="text" value="$" id="currency">
-          <button class="u-full-width button-primary" onclick="showThenHide('send', 'download')">Send Invoice</button>
+          <input type="text" value="$" id="currency" onchange="replaceCurrency();" onkeyup="replaceCurrency()">
+          <button class="u-full-width button-primary" onclick="showThenHide('send', 'download');replaceMessage();">Send Invoice</button>
           <button class="button-primary u-full-width" onclick="showThenHide('download', 'send')">Download Invoice</button>
           <hr />
           <div id="download">
@@ -36,16 +96,9 @@
               <input type="email" placeholder = "example@example.com" id="email-receiver" class="u-full-width">      
               <label for="email-sender">From:</label>
               <input type="email" placeholder = "example@example.com" id="email-sender" class="u-full-width">
-              <label class="inline">Subject:</label> Invoice from SENDERHERE : NUMBERHERE
+              <label>Subject:</label> Invoice from <span id="subject"></span>
               <label for="message">Message:</label>
-              <textarea class="u-full-width">Hi FOULANI,
-              
-A new invoice has been created on your account. You may find a PDF of your invoice attached.
-
-Thank you for your business!
-                  
-With Regards,
-- sljflk</textarea>
+              <textarea class="u-full-width" id="email"></textarea>
               <small><i class="fa fa-paperclip"></i> Invoice Attached</small>
               <p>(CAPTCHA HERE)</p>
               <button class="u-full-width">Send!</button>
